@@ -1,7 +1,17 @@
-import { ParentComponent } from "./components/ParentComponent";
+import {useState, FC } from 'react';
+import { ChildComponent } from "./ChildComponent";
 
-function App() {
-  return (<ParentComponent />)
-}
+const App: FC = () => {
+  const [count, setCount] = useState<number>(0);
 
-export default App;
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Увеличить счетчик</button>
+      <ChildComponent value={count} />
+      <ChildComponent value={5} />
+    </div>
+  );
+};
+
+export default App
+
